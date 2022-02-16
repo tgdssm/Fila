@@ -2,27 +2,35 @@
 #include "Fila.h";
 int main()
 {
+	int Operacao;
+	TipoItem Item;
 	Fila fila = Fila();
-	for (int i = 0; i < MaxItems; i++)
-	{
-		TipoItem item;
-		std::cin >> item;
-		fila.AddItem(item);
-	}
-	fila.VerFila();
 
-	for (int i = 0; i < MaxItems; i++)
+	do
 	{
-		char deletar;
-		std::cin >> deletar;
-		if (deletar == 's')
+		std::cout << "Adicionar Item: 1\n";
+		std::cout << "Remover Item: 2\n";
+		std::cout << "Ver fila: 3\n";
+		std::cin >> Operacao;
+
+		switch (Operacao)
 		{
-			std::cout << fila.RemoverItem() << std::endl;
-			fila.VerPrimeiroItem();
+		case 1:
+			std::cin >> Item;
+			fila.AddItem(Item);
+			break;
+		case 2:
+			std::cout << "Item removido: " << fila.RemoverItem() << std::endl;
+			break;
+		case 3:
+			std::cout << "Itens da fila: \n";
+			fila.VerFila();
+			break;
+		default:
+			break;
 		}
-	}
-	std::cout << "\n\n";
-	fila.VerFila();
+
+	} while (Operacao != 0);
 
 	system("PAUSE");
 	return 0;

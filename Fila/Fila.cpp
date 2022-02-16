@@ -38,11 +38,11 @@ TipoItem Fila::RemoverItem()
 	if (Tamanho > 0)
 	{
 		TipoItem ItemRemovido = Estrutura[0];
-		Tamanho--;
 		for (int i = 0; i < Tamanho; i++)
 		{
 			Estrutura[i] = Estrutura[i + 1];
 		}
+		Tamanho--;
 		return ItemRemovido;
 	} return 0;
 }
